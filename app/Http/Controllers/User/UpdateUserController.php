@@ -5,6 +5,10 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\CommonModel\UserCommon;
+use AshAllenDesign\LaravelExchangeRates\Classes\ExchangeRate;
+use Carbon\Carbon;
+
+use function App\Helpers\test;
 
 class UpdateUserController extends Controller
 {
@@ -34,5 +38,15 @@ class UpdateUserController extends Controller
     public function getAll()
     {
         dd($this->user->searchCart());
+    }
+
+    public function tesstChangecurrency()
+    {
+        // dd(test(500,"VND"));
+
+        $exchangeRates = new ExchangeRate();
+        $result = $exchangeRates->convert(500, 'EUR', 'VND' , Carbon::now());
+        dd($result);
+        // $result = $exchangeRates->convert(100, 'GBP', 'EUR', Carbon::now());
     }
 }

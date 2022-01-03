@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DemoController;
 use App\Http\Controllers\User\UpdateUserController;
 use Illuminate\Support\Facades\Route;
 /*
@@ -12,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/test',[DemoController::class,'index'])->name('test');
 
 // ADmin
 
@@ -108,4 +111,4 @@ Route::post('/register', "PageController@postRegister")->name('postRegister');
 Route::post('/logout', "PageController@postLogout")->name('postLogout');
 
 
-Route::get('/test', 'User\UpdateUserController@getAll')->name('test');
+Route::get('/test', 'User\UpdateUserController@tesstChangecurrency')->name('tesstChangecurrency');
